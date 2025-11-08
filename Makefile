@@ -1,5 +1,5 @@
 NAME = libft.a
-SO_NAME = libft.so
+#SO_NAME = libft.so
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
