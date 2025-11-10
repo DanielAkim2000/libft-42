@@ -6,7 +6,7 @@
 /*   By: demane <emanedanielakim@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:16:28 by demane            #+#    #+#             */
-/*   Updated: 2025/11/08 16:11:49 by demane           ###   ########.fr       */
+/*   Updated: 2025/11/10 14:59:36 by demane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char	*ft_strrchr(const char *s, int c)
 	rtr = NULL;
 	while (*ptr)
 	{
-		if (*ptr == c)
+		if (*ptr == (unsigned char)c)
 			rtr = ptr;
 		ptr++;
 	}
-	if (c == '\0')
+	if ((unsigned char)c == '\0')
 		return (ptr);
 	return (rtr);
 }

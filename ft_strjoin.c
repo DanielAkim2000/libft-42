@@ -6,7 +6,7 @@
 /*   By: demane <emanedanielakim@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 15:55:57 by demane            #+#    #+#             */
-/*   Updated: 2025/11/07 13:54:53 by demane           ###   ########.fr       */
+/*   Updated: 2025/11/10 13:16:06 by demane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	if (!s1 || !s2)
 		return (NULL);
 	len_malloc = ft_strlen(s1) + ft_strlen(s2);
-	if (len_malloc == 0)
-		return (NULL);
 	str = (char *)malloc(sizeof(char) * (len_malloc + 1));
 	if (!str)
 		return (NULL);

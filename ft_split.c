@@ -6,16 +6,11 @@
 /*   By: demane <emanedanielakim@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:10:28 by demane            #+#    #+#             */
-/*   Updated: 2025/11/08 15:26:23 by demane           ###   ########.fr       */
+/*   Updated: 2025/11/10 17:44:09 by demane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_issep(char c1, char c2)
-{
-	return (c1 == c2);
-}
 
 static int	ft_countwords(char const *str, char c)
 {
@@ -30,12 +25,12 @@ static int	ft_countwords(char const *str, char c)
 		return (0);
 	while (str[i] != '\0')
 	{
-		if (in_words == 0 && ft_issep(str[i], c) == 0)
+		if (in_words == 0 && str[i] != c)
 		{
 			in_words = 1;
 			nb_words++;
 		}
-		if (in_words == 1 && ft_issep(str[i], c) == 1)
+		if (in_words == 1 && str[i] == c)
 			in_words = 0;
 		i++;
 	}
@@ -59,31 +54,48 @@ static char	*ft_copywords(char const *str, int width_words)
 	return (new_word);
 }
 
+static char	**ft_free_all(char **strs)
+{
+	int	k;
+
+	k = -1;
+	while (strs[++k] != NULL)
+		free(strs[k]);
+	free(strs);
+	return (NULL);
+}
+
+static void	ft_init(int *a, int *b)
+{
+	*a = 0;
+	*b = 0;
+}
+
 char	**ft_split(char const *str, char c)
 {
-	int		nb_words;
 	int		i;
 	int		j;
 	int		k;
 	char	**strs;
 
-	i = 0;
-	k = 0;
+	ft_init(&i, &k);
 	if (!str)
 		return (NULL);
-	nb_words = ft_countwords(str, c);
-	strs = (char **)malloc(sizeof(char *) * (nb_words + 1));
+	strs = (char **)malloc(sizeof(char *) * (ft_countwords(str, c) + 1));
 	if (!strs)
 		return (NULL);
-	while (str[i] && k < nb_words)
+	while (str[i] && k < ft_countwords(str, c))
 	{
 		j = i;
-		while (str[j] && ft_issep(str[j], c) == 0)
+		while (str[j] && str[j] != c)
 			j++;
 		if (j - i > 0)
-			strs[k++] = ft_copywords(&str[i], j - i);
+		{
+			strs[k] = ft_copywords(&str[i], j - i);
+			if (strs[k++] == NULL)
+				return (ft_free_all(strs));
+		}
 		i = j + 1;
 	}
-	strs[k] = NULL;
-	return (strs);
+	return (strs[k] = NULL, strs);
 }

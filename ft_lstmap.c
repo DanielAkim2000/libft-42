@@ -6,11 +6,9 @@
 /*   By: demane <emanedanielakim@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 14:21:39 by demane            #+#    #+#             */
-/*   Updated: 2025/11/08 15:00:11 by demane           ###   ########.fr       */
+/*   Updated: 2025/11/10 17:29:51 by demane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 #include "libft.h"
 
@@ -29,6 +27,8 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 		new_node = ft_lstnew(new_content);
 		if (!new_node)
 		{
+			del(new_content);
+			free(new_node);
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
