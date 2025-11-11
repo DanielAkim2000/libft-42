@@ -6,11 +6,10 @@
 #    By: demane <emanedanielakim@gmail.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/10 11:33:07 by demane            #+#    #+#              #
-#    Updated: 2025/11/10 17:56:08 by demane           ###   ########.fr        #
+#    Updated: 2025/11/11 09:54:22 by demane           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# SO_NAME = libft.so
 NAME = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -I libft.h
@@ -43,6 +42,8 @@ bonus: $(OBJS_BONUS) $(OBJS) $(NAME)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
+
+# SO_NAME = libft.so
 # # Création de la lib dynamique
 # so: $(OBJS) $(OBJS_BONUS)
 # 	$(CC) -shared $(CFLAGS) -o $(SO_NAME) $(OBJS) $(OBJS_BONUS)
