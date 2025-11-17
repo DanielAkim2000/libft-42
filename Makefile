@@ -6,7 +6,7 @@
 #    By: demane <emanedanielakim@gmail.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/10 11:33:07 by demane            #+#    #+#              #
-#    Updated: 2025/11/11 09:54:22 by demane           ###   ########.fr        #
+#    Updated: 2025/11/17 18:29:01 by demane           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,8 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c \
 	   ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_split.c \
 	   ft_strchr.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c \
 	   ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c \
-	   ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c
+	   ft_strrchr.c ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c \
+	   ft_intlen.c ft_maxint.c ft_minint.c ft_has_duplicates.c ft_putnbr_base_fd.c
 
 SRCS_BONUS =  ft_lstlast.c ft_lstdelone.c ft_lstsize.c ft_lstclear.c \
 			  ft_lstnew.c ft_lstadd_front.c ft_lstadd_back.c ft_lstiter.c ft_lstmap.c
@@ -42,11 +43,6 @@ bonus: $(OBJS_BONUS) $(OBJS) $(NAME)
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-
-# SO_NAME = libft.so
-# # Création de la lib dynamique
-# so: $(OBJS) $(OBJS_BONUS)
-# 	$(CC) -shared $(CFLAGS) -o $(SO_NAME) $(OBJS) $(OBJS_BONUS)
 clean:
 	$(RM) $(OBJS) $(OBJS_BONUS)
 

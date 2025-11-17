@@ -6,7 +6,7 @@
 /*   By: demane <emanedanielakim@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:01:46 by demane            #+#    #+#             */
-/*   Updated: 2025/11/10 14:47:53 by demane           ###   ########.fr       */
+/*   Updated: 2025/11/17 13:37:09 by demane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdarg.h>
 
 /* Structure pour les listes chaînées */
 typedef struct s_list
@@ -31,6 +32,10 @@ int		ft_isascii(int c);
 int		ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
+
+int		ft_intlen(int c);
+int		ft_maxint(int count, ...);
+int		ft_minint(int count, ...);
 
 /* Fonctions de manipulation de mémoire */
 void	*ft_memset(void *ptr, int c, size_t n);
@@ -56,6 +61,7 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 void	ft_striteri(char *s, void (*f)(unsigned int, char*));
+int		ft_has_duplicates(char c, int index, char *str);
 
 /* Fonctions de conversion */
 int		ft_atoi(const char *str);
@@ -66,6 +72,8 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_putnbr_base_fd(long long n, char *base, int fd);
+void	ft_putunbr_base_fd(unsigned long long n, char *base, int fd);
 
 /* Fonctions de manipulation de listes chaînées */
 t_list	*ft_lstnew(void *content);
