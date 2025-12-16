@@ -6,7 +6,7 @@
 /*   By: demane <emanedanielakim@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:01:46 by demane            #+#    #+#             */
-/*   Updated: 2025/11/17 13:37:09 by demane           ###   ########.fr       */
+/*   Updated: 2025/12/11 15:10:23 by demane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int		ft_has_duplicates(char c, int index, char *str);
 /* Fonctions de conversion */
 int		ft_atoi(const char *str);
 char	*ft_itoa(int n);
+long	ft_atol(const char *str);
 
 /* Fonctions d'output */
 void	ft_putchar_fd(char c, int fd);
@@ -85,5 +86,8 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 void	ft_lstclear(t_list **lst, void (*del)(void *));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+/* Fonctions pour free n importe quel type */
+void	ft_free(void *p);
 
 #endif
