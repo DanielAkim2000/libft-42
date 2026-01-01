@@ -6,7 +6,7 @@
 /*   By: demane <emanedanielakim@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 14:01:46 by demane            #+#    #+#             */
-/*   Updated: 2026/01/01 13:34:35 by demane           ###   ########.fr       */
+/*   Updated: 2026/01/01 13:51:06 by demane           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,10 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 /* Fonctions pour free n importe quel type */
 void	ft_free(void **p);
+
+/* Mon printf */
+int		ft_printf(const char *str, ...);
+/* Mon gnl */
+char	*get_next_line(int fd);
 
 #endif
